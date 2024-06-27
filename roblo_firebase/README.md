@@ -1,16 +1,23 @@
-# roblo_firebase
+# Flutter Chat App
 
-A new Flutter project.
+A basic chat application with email and password authentication using Firebase. This application allows users to sign up, log in, and chat with other authenticated users. Messages are stored and synchronized in real-time using Firebase Firestore.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- User Authentication (Sign In, Sign Up, Sign Out)
+- Real-time chat with other users
+- CRUD operations for messages
+- Messages stored in Firebase Firestore
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter
+- Dart
+- Firebase Authentication
+- Firebase Firestore
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+1. Clone the repository:
+
+

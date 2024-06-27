@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "220296208766",
+    "project_id": "rabloassignment-1ed4a",
+    "storage_bucket": "rabloassignment-1ed4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220296208766:android:24bb5443882a2f7b4dd32f",
+        "android_client_info": {
+          "package_name": "com.example.roblo_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAz0BUO-MtSzDlQ232HLLgdccmCNq3l-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
