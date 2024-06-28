@@ -6,7 +6,7 @@ A basic chat application with email and password authentication using Firebase. 
 
 - User Authentication (Sign In, Sign Up, Sign Out)
 - Real-time chat with other users
-- CRUD operations for messages
+- CRUD operations for basic information
 - Messages stored in Firebase Firestore
 
 ## Tech Stack
