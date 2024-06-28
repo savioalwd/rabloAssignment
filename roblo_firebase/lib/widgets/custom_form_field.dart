@@ -5,6 +5,8 @@ class CustomFormField extends StatelessWidget {
   final double height;
   final RegExp validationRegExp;
   final bool obscureText;
+  final String? initialValue;
+  final bool readOnly;
   final void Function(String?) onSaved;
 
   const CustomFormField({
@@ -14,6 +16,8 @@ class CustomFormField extends StatelessWidget {
     required this.validationRegExp,
     required this.onSaved,
     this.obscureText = false,
+    this.initialValue,
+    this.readOnly = false,
   });
 
   @override
@@ -21,7 +25,9 @@ class CustomFormField extends StatelessWidget {
     return SizedBox(
       height: height,
       child: TextFormField(
+        initialValue: initialValue,
         onSaved: onSaved,
+        readOnly: readOnly,
         obscureText: obscureText,
         validator: (value) {
           if (value != null && validationRegExp.hasMatch(value)) {

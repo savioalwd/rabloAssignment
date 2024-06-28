@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get_it/get_it.dart';
 import 'package:roblo_firebase/consts.dart';
+import 'package:roblo_firebase/services/alert_service.dart';
 import 'package:roblo_firebase/services/auth_service.dart';
 import 'package:roblo_firebase/services/navigation_service.dart';
 import 'package:roblo_firebase/widgets/custom_form_field.dart';
@@ -20,6 +22,8 @@ class _LoginPageState extends State<LoginPage> {
 
   late AuthService _authService;
   late NavigationService _navigationService;
+  late AlertService _alertService;
+
   String? email, password;
 
   @override
@@ -27,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     _authService = _getIt.get<AuthService>();
     _navigationService = _getIt.get<NavigationService>();
+    _alertService = _getIt.get<AlertService>();
   }
 
   @override
@@ -63,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
           Text(
             "Hi, Welcome Back",
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w800, color: Colors.grey),
+                fontSize: 20, fontWeight: FontWeight.w800, color: Colors.black),
           ),
           Text(
             "Hello again, you've been missed",
@@ -130,7 +135,18 @@ class _LoginPageState extends State<LoginPage> {
             bool result = await _authService.login(email!, password!);
 
             if (result) {
+              _alertService.showToast(
+                text: "Login Successfull",
+                color: Colors.greenAccent,
+                icon: Icons.check,
+              );
               _navigationService.pushReplaceMentNamed('/home');
+            } else {
+              _alertService.showToast(
+                text: "Failed to login,please try again!",
+                color: Colors.redAccent,
+                icon: Icons.error,
+              );
             }
           }
         },
@@ -147,16 +163,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _createAccountLink() {
-    return const Expanded(
+    return Expanded(
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text("Dont have an Account "),
-          Text(
-            " Sign Up",
-            style: TextStyle(fontWeight: FontWeight.w800),
+          const Text("Dont have an Account "),
+          GestureDetector(
+            onTap: () {
+              _navigationService.pushNamed("/register");
+            },
+            child: const Text(
+              " Sign Up",
+              style: TextStyle(fontWeight: FontWeight.w800),
+            ),
           )
         ],
       ),
